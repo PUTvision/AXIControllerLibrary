@@ -1,0 +1,2 @@
+add_executable(axi_ctrl_test axi_ctrl_test.cpp)
+target_link_libraries(axi_ctrl_test axi_ctrl)
