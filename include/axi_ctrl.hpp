@@ -57,15 +57,16 @@ public:
 
 	template<std::uint32_t RegisterNumber, std::uint8_t Begin, std::uint8_t End>
 	std::uint32_t get_property(const RegisterMapping<RegisterNumber, Begin, End> &) {
-    constexpr std::uint32_t mask = (1l << (1 + End - Begin)) - 1;
-    return (registers[RegisterNumber] >> Begin) & mask;
+		constexpr std::uint32_t mask = (1l << (1 + End - Begin)) - 1;
+		return (registers[RegisterNumber] >> Begin) & mask;
   }
 
-  template<std::uint32_t RegisterNumber, std::uint8_t Begin, std::uint8_t End>
+	template<std::uint32_t RegisterNumber, std::uint8_t Begin, std::uint8_t End>
 	void set_property(const RegisterMapping<RegisterNumber, Begin, End> &, std::uint32_t value) {
-    constexpr std::uint32_t mask = (1l << (1 + End - Begin)) - 1;
-    registers[RegisterNumber] = value & mask << Begin;
-  }
+		constexpr std::uint32_t mask = (1l << (1 + End - Begin)) - 1;
+		registers[RegisterNumber] &= ~(mask << Begin);
+		registers[RegisterNumber] |= (value & mask) << Begin;
+	}
 };
 
 #endif // AXICONTROLLER_H
