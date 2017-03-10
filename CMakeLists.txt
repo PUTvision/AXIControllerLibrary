@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.7)
 project(axi_ctrl)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(libraries/xilinx_axidma/include)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
 
@@ -11,5 +12,6 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 endif ()
 
+add_subdirectory(libraries)
 add_subdirectory(lib)
 add_subdirectory(userprog)
