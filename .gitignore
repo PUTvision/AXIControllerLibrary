@@ -35,4 +35,4 @@
 *.kdev4
 .idea/
 build/
-
+CMakeLists.txt.user
