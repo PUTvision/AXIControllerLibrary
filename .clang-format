@@ -1,0 +1,9 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+UseTab: ForIndentation
+TabWidth: 2
+ColumnLimit: 120
+AllowShortFunctionsOnASingleLine: None
+AlwaysBreakTemplateDeclarations: true
+BinPackArguments: false
